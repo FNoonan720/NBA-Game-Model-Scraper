@@ -633,6 +633,7 @@ public class Main {
 		
 		currDay = LocalDateTime.now().getDayOfYear();
 		calendar.set(Calendar.DAY_OF_YEAR, currDay);
+		calendar.set(Calendar.YEAR, LocalDateTime.now().getYear());
 		monthName = calendar.getTime().toString().substring(4, 7);    	
 		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
 		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
