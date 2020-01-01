@@ -152,7 +152,6 @@ public class Main {
 		}
 		System.out.println("Done!");		
 		
-		
 		// Jumps to CTG's Four Factors page for 'Home' performance AS OF YESTERDAY, then waits for page load
 		driver.get("https://www.cleaningtheglass.com/stats/league/fourfactors?season=2019&seasontype=regseason&start=10/15/2019&end=" + monthCodes.get(monthName) + "/" + dayOfMonth + "/" + year + "&venue=home");
 		System.out.print("Saving Yesterday's Home data...\t\t\t");
@@ -323,13 +322,15 @@ public class Main {
 		}
 		System.out.println("Done!");
 		
-		System.out.println("calendar.getTime().toString(): " + calendar.getTime().toString());
-		System.out.println("currDay: " + currDay);
-		currDay -= 15;
-		System.out.println("currDay: " + currDay);
+		if(currDay-15 < 1) {
+			currDay -= 15;
+			currDay += 364;
+		}
+		else {
+			currDay -= 15;
+		}
 
 		calendar.set(Calendar.DAY_OF_YEAR, currDay);
-		System.out.println("calendar.getTime().toString(): " + calendar.getTime().toString());
 		monthName = calendar.getTime().toString().substring(4, 7);
 		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
 		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
@@ -390,8 +391,6 @@ public class Main {
 		}
 		System.out.println("Done!");
 		
-		System.out.println("calendar.getTime().toString(): " + calendar.getTime().toString());
-		
 		currDay -= 1;
 		int endDay = currDay + 14;
 		calendar.set(Calendar.DAY_OF_YEAR, currDay);
@@ -400,7 +399,6 @@ public class Main {
 		int startYear = Integer.parseInt(calendar.getTime().toString().substring(24,28));
 		
 		calendar.set(Calendar.DAY_OF_YEAR, endDay);
-		System.out.println("calendar.getTime().toString(): " + calendar.getTime().toString());
 		monthName = calendar.getTime().toString().substring(4, 7);
 		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
 		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
@@ -461,14 +459,12 @@ public class Main {
 		}
 		System.out.println("Done!");
 
-		
-		
 		// Uses current date & time to get the night's upcoming game data
 		currDay = LocalDateTime.now().getDayOfYear();
 		calendar.set(Calendar.DAY_OF_YEAR, currDay);
 		monthName = calendar.getTime().toString().substring(4, 7);
 		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
-		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
+		year = Integer.parseInt(calendar.getTime().toString().substring(24,28))+1;
 		
 		/*
 		
@@ -589,10 +585,12 @@ public class Main {
 		
 		// Gets today's date, then calculates the previous date, which is used to get the previous night's scores from NBA.com
 		currDay = LocalDateTime.now().getDayOfYear();
-		currDay -= 1;
+		if(currDay == 1) { currDay += 364; }
+		else { currDay -= 1; }
 		calendar.set(Calendar.DAY_OF_YEAR, currDay);
 		monthName = calendar.getTime().toString().substring(4, 7);    	
 		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
+		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
 		
 		// Jumps to rotoworld.com's injury report, then waits for page load
 		driver.get("https://www.rotoworld.com/basketball/nba/injury-report");
@@ -638,7 +636,7 @@ public class Main {
 		monthName = calendar.getTime().toString().substring(4, 7);    	
 		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
 		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
-		
+				
 		if(count == 0) {
 			System.out.println("Injury Report not up-to-date.");
 			return;
@@ -650,12 +648,12 @@ public class Main {
 		String basePath = new File("").getAbsolutePath();
 		File csvFile1 = new File(basePath + "\\output.csv");
 		File csvFile2 = new File(basePath + "\\output-history.csv");
-		File logFile  = new File(basePath + "\\log.txt");
+		//File logFile  = new File(basePath + "\\log.txt");
 		FileWriter fileWriter1 = new FileWriter(csvFile1);
 		FileWriter fileWriter2 = new FileWriter(csvFile2, true);
-		FileWriter fileWriter3 = new FileWriter(logFile, true);
+		//FileWriter fileWriter3 = new FileWriter(logFile, true);
 		BufferedWriter buffWriter1 = new BufferedWriter(fileWriter2);
-		BufferedWriter buffWriter2 = new BufferedWriter(fileWriter3);
+		//BufferedWriter buffWriter2 = new BufferedWriter(fileWriter3);
 		
 		fileWriter1.append("As of " + monthCodes.get(monthName) + "-" + formatter.format(dayOfMonth) + "-" + year + "\n\n");
 		
@@ -694,12 +692,13 @@ public class Main {
 			fileWriter1.append("\n");
 		}
 		
-		currDay -= 1;
+		if(currDay == 1) { currDay += 364; }
+		else { currDay -= 1; }
 		calendar.set(Calendar.DAY_OF_YEAR, currDay);
 		monthName = calendar.getTime().toString().substring(4, 7);    	
 		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
 		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
-		
+				
 		fileWriter1.append("\nAs of " + monthCodes.get(monthName) + "-" + formatter.format(dayOfMonth) + "-" + year + "\n\n");
 		
 		fileWriter1.append("Yesterday's Home Data\n");
@@ -743,6 +742,8 @@ public class Main {
 		// Output file 2
 		currDay = LocalDateTime.now().getDayOfYear();
 		calendar.set(Calendar.DAY_OF_YEAR, currDay);
+		calendar.set(Calendar.YEAR, LocalDateTime.now().getYear());
+		System.out.println("calendar.getTime().toString(): " + calendar.getTime().toString());
 		monthName = calendar.getTime().toString().substring(4, 7);
 		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
 		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
