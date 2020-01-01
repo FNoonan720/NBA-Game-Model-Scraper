@@ -323,9 +323,13 @@ public class Main {
 		}
 		System.out.println("Done!");
 		
-		
+		System.out.println("calendar.getTime().toString(): " + calendar.getTime().toString());
+		System.out.println("currDay: " + currDay);
 		currDay -= 15;
+		System.out.println("currDay: " + currDay);
+
 		calendar.set(Calendar.DAY_OF_YEAR, currDay);
+		System.out.println("calendar.getTime().toString(): " + calendar.getTime().toString());
 		monthName = calendar.getTime().toString().substring(4, 7);
 		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
 		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
@@ -386,6 +390,7 @@ public class Main {
 		}
 		System.out.println("Done!");
 		
+		System.out.println("calendar.getTime().toString(): " + calendar.getTime().toString());
 		
 		currDay -= 1;
 		int endDay = currDay + 14;
@@ -395,6 +400,7 @@ public class Main {
 		int startYear = Integer.parseInt(calendar.getTime().toString().substring(24,28));
 		
 		calendar.set(Calendar.DAY_OF_YEAR, endDay);
+		System.out.println("calendar.getTime().toString(): " + calendar.getTime().toString());
 		monthName = calendar.getTime().toString().substring(4, 7);
 		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
 		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
@@ -464,6 +470,8 @@ public class Main {
 		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
 		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
 		
+		/*
+		
 		// Jumps to the night's upcoming game data, then waits for page load
 		driver.get("https://www.cleaningtheglass.com/stats/games?date=" + year + "-" + monthCodes.get(monthName) + "-" + dayOfMonth);
 		System.out.print("Saving Days Rest data...\t\t\t");
@@ -507,6 +515,8 @@ public class Main {
 			daysRestMap.put(homeTeams.get(i), homeRest.get(i));
 		}
 		System.out.println("Done!");
+		
+		*/
 		
 		// Jumps to the night's game lines/spreads on Bovada, waits for page load, clicks element that filters for games being played within the next 24 hours, and waits for page load again
 		driver.get("https://www.bovada.lv/sports/basketball/nba");
@@ -629,11 +639,6 @@ public class Main {
 		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
 		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
 		
-		if(teamAbvs.size() < awayRest.size()) {
-			System.out.println("\nFailed: One or more lines missing from Bovada.\n");
-			return;
-		}
-		
 		if(count == 0) {
 			System.out.println("Injury Report not up-to-date.");
 			return;
@@ -645,9 +650,12 @@ public class Main {
 		String basePath = new File("").getAbsolutePath();
 		File csvFile1 = new File(basePath + "\\output.csv");
 		File csvFile2 = new File(basePath + "\\output-history.csv");
+		File logFile  = new File(basePath + "\\log.txt");
 		FileWriter fileWriter1 = new FileWriter(csvFile1);
 		FileWriter fileWriter2 = new FileWriter(csvFile2, true);
-		BufferedWriter buffWriter = new BufferedWriter(fileWriter2);
+		FileWriter fileWriter3 = new FileWriter(logFile, true);
+		BufferedWriter buffWriter1 = new BufferedWriter(fileWriter2);
+		BufferedWriter buffWriter2 = new BufferedWriter(fileWriter3);
 		
 		fileWriter1.append("As of " + monthCodes.get(monthName) + "-" + formatter.format(dayOfMonth) + "-" + year + "\n\n");
 		
@@ -739,20 +747,20 @@ public class Main {
 		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
 		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
 		
-		buffWriter.write(monthCodes.get(monthName) + "-" + dayOfMonth + "-" + year + "\n" + spreads.size()/2 + "\n");
-		for(int i = 0; i < awayRest.size(); i++) {
-			buffWriter.write("Away,");
-			buffWriter.write(teamAbvs.get(i*2)+",");
-			buffWriter.write(daysRestMap.get(teamAbvs.get(i*2))+",");
-			buffWriter.write(spreads.get(i*2)+"\n");
-			buffWriter.write("Home,");
-			buffWriter.write(teamAbvs.get(i*2+1)+",");
-			buffWriter.write(daysRestMap.get(teamAbvs.get(i*2+1))+",");
-			buffWriter.write(spreads.get(i*2+1)+"\n\n");
+		buffWriter1.write(monthCodes.get(monthName) + "-" + dayOfMonth + "-" + year + "\n" + spreads.size()/2 + "\n");
+		for(int i = 0; i < spreads.size()/2; i++) {
+			buffWriter1.write("Away,");
+			buffWriter1.write(teamAbvs.get(i*2)+",");
+			//buffWriter1.write(daysRestMap.get(teamAbvs.get(i*2))+",");
+			buffWriter1.write(spreads.get(i*2)+"\n");
+			buffWriter1.write("Home,");
+			buffWriter1.write(teamAbvs.get(i*2+1)+",");
+			//buffWriter1.write(daysRestMap.get(teamAbvs.get(i*2+1))+",");
+			buffWriter1.write(spreads.get(i*2+1)+"\n\n");
 		}
 		
 		// Bovada Output
-		buffWriter.close();
+		buffWriter1.close();
 		
 		System.out.println("Done!");
 		
