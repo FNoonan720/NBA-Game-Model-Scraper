@@ -4,10 +4,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.DecimalFormat;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -44,36 +42,10 @@ public class Main {
 
 	public static void scrapeModelData (String email, String password) throws InterruptedException, IOException {
 		
-		// Gets current date and the date 2 weeks earlier
-		int currDay = LocalDateTime.now().getDayOfYear();
-		int yesDay = currDay-2;
-		
-		// Sets today's date
-		Calendar calendar = Calendar.getInstance();		
-		calendar.set(Calendar.DAY_OF_YEAR, yesDay);
-		
-		// Parses calendar data to get a month name (abbreviated), then saves the code as an integer in a HashMap to represent said month
-		String monthName = calendar.getTime().toString().substring(4, 7);
-		Map<String, Integer> monthCodes = new HashMap<String, Integer>();
-		monthCodes.put("Jan", 1);
-		monthCodes.put("Feb", 2);
-		monthCodes.put("Mar", 3);
-		monthCodes.put("Apr", 4);
-		monthCodes.put("May", 5);
-		monthCodes.put("Jun", 6);
-		monthCodes.put("Jul", 7);
-		monthCodes.put("Aug", 8);
-		monthCodes.put("Sep", 9);
-		monthCodes.put("Oct", 10);
-		monthCodes.put("Nov", 11);
-		monthCodes.put("Dec", 12);
-		
-		// Parses calendar data to get current day of month and year
-		int dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
-		int year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
-		
-		// Two-digit Month code formatter
-		DecimalFormat formatter = new DecimalFormat("00");
+		LocalDate today = LocalDate.now();		
+		LocalDate yesterday = today.minusDays(1);
+		LocalDate yesterdayCTG = today.minusDays(2);
+		LocalDate twoWksAgo = today.minusDays(15);
 		
 		// Creates a Chrome driver instance
 		WebDriver driver = new ChromeDriver();
@@ -153,7 +125,7 @@ public class Main {
 		System.out.println("Done!");		
 		
 		// Jumps to CTG's Four Factors page for 'Home' performance AS OF YESTERDAY, then waits for page load
-		driver.get("https://www.cleaningtheglass.com/stats/league/fourfactors?season=2019&seasontype=regseason&start=10/15/2019&end=" + monthCodes.get(monthName) + "/" + dayOfMonth + "/" + year + "&venue=home");
+		driver.get("https://www.cleaningtheglass.com/stats/league/fourfactors?season=2019&seasontype=regseason&start=10/15/2019&end=" + yesterdayCTG.getMonthValue() + "/" + yesterdayCTG.getDayOfMonth() + "/" + yesterdayCTG.getYear() + "&venue=home");
 		System.out.print("Saving Yesterday's Home data...\t\t\t");
 		Thread.sleep(500);
 		
@@ -267,7 +239,7 @@ public class Main {
 		
 		
 		// Jumps to CTG's Four Factors page for 'Away' performance AS OF YESTERDAY, then waits for page load
-		driver.get("https://www.cleaningtheglass.com/stats/league/fourfactors?season=2019&seasontype=regseason&start=10/15/2019&end=" + monthCodes.get(monthName) + "/" + dayOfMonth + "/" + year + "&venue=away");
+		driver.get("https://www.cleaningtheglass.com/stats/league/fourfactors?season=2019&seasontype=regseason&start=10/15/2019&end=" + yesterday.getMonthValue() + "/" + yesterday.getDayOfMonth() + "/" + yesterday.getYear() + "&venue=away");
 		System.out.print("Saving Yesterday's Home data...\t\t\t");
 		Thread.sleep(500);
 		
@@ -322,21 +294,8 @@ public class Main {
 		}
 		System.out.println("Done!");
 		
-		if(currDay-15 < 1) {
-			currDay -= 15;
-			currDay += 364;
-		}
-		else {
-			currDay -= 15;
-		}
-
-		calendar.set(Calendar.DAY_OF_YEAR, currDay);
-		monthName = calendar.getTime().toString().substring(4, 7);
-		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
-		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
-		
 		// Jumps to CTG's Four Factors page for 'Last 2 Weeks' performance, then waits for page load
-		driver.get("https://www.cleaningtheglass.com/stats/league/fourfactors?season=" + year + "&seasontype=regseason&start=" + monthCodes.get(monthName) + "/" + dayOfMonth + "/" + year + "&end=07/1/" + (year+1));
+		driver.get("https://www.cleaningtheglass.com/stats/league/fourfactors?season=" + twoWksAgo.getYear() + "&seasontype=regseason&start=" + twoWksAgo.getMonthValue() + "/" + twoWksAgo.getDayOfMonth() + "/" + twoWksAgo.getYear() + "&end=07/1/" + (twoWksAgo.getYear()+1));
 		System.out.print("Saving Recent (Last 2 Weeks) data...\t\t");
 		Thread.sleep(500);
 		
@@ -391,20 +350,8 @@ public class Main {
 		}
 		System.out.println("Done!");
 		
-		currDay -= 1;
-		int endDay = currDay + 14;
-		calendar.set(Calendar.DAY_OF_YEAR, currDay);
-		String startMonthName = calendar.getTime().toString().substring(4, 7);
-		int startDayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
-		int startYear = Integer.parseInt(calendar.getTime().toString().substring(24,28));
-		
-		calendar.set(Calendar.DAY_OF_YEAR, endDay);
-		monthName = calendar.getTime().toString().substring(4, 7);
-		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
-		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
-		
 		// Jumps to CTG's Four Factors page for 'Last 2 Weeks' performance, then waits for page load
-		driver.get("https://www.cleaningtheglass.com/stats/league/fourfactors?season=" + startYear + "&seasontype=regseason&start=" + monthCodes.get(startMonthName) + "/" + startDayOfMonth + "/" + year + "&end=" + monthCodes.get(monthName) + "/" + dayOfMonth + "/" + year); // Fix next season
+		driver.get("https://www.cleaningtheglass.com/stats/league/fourfactors?season=" + 2019 + "&seasontype=regseason&start=" + twoWksAgo.getMonthValue() + "/" + twoWksAgo.getDayOfMonth() + "/" + twoWksAgo.getYear() + "&end=" + yesterdayCTG.getMonthValue() + "/" + yesterdayCTG.getDayOfMonth() + "/" + yesterdayCTG.getYear()); // Fix next season
 		System.out.print("Saving Yesterday's Recent data...\t\t");
 		Thread.sleep(500);
 		
@@ -458,61 +405,6 @@ public class Main {
 			yesRecentDataTable.add(temp);
 		}
 		System.out.println("Done!");
-
-		// Uses current date & time to get the night's upcoming game data
-		currDay = LocalDateTime.now().getDayOfYear();
-		calendar.set(Calendar.DAY_OF_YEAR, currDay);
-		monthName = calendar.getTime().toString().substring(4, 7);
-		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
-		year = Integer.parseInt(calendar.getTime().toString().substring(24,28))+1;
-		
-		/*
-		
-		// Jumps to the night's upcoming game data, then waits for page load
-		driver.get("https://www.cleaningtheglass.com/stats/games?date=" + year + "-" + monthCodes.get(monthName) + "-" + dayOfMonth);
-		System.out.print("Saving Days Rest data...\t\t\t");
-		Thread.sleep(1500);
-		
-		// Gets page's source code and saves all elements with the class "team_name" or "stat"
-		doc = Jsoup.parse(driver.getPageSource());
-		Elements teamNameElements = doc.getElementsByClass("team_name");
-		Elements daysRestElements = doc.getElementsByClass("stat");
-		
-		// Initializes lists to store team names and their respective days rest heading into the night's games
-		ArrayList<String> awayTeams = new ArrayList<String>();
-		ArrayList<String> homeTeams = new ArrayList<String>();
-		ArrayList<Integer> awayRest = new ArrayList<Integer>();
-		ArrayList<Integer> homeRest = new ArrayList<Integer>();
-		
-		// Saves appropriate team names
-		for(int i = 0; i < teamNameElements.size(); i++) {
-			if(i%2==0) {
-				awayTeams.add(teamNameElements.get(i).text());
-			}
-			else {
-				homeTeams.add(teamNameElements.get(i).text());
-			}
-		}
-		
-		// Saves appropriate days rest
-		for(int i = 0; i < daysRestElements.size(); i+=7) { 
-			if(i%2==0) {
-				awayRest.add(Integer.parseInt(daysRestElements.get(i).text()));
-			}
-			else {
-				homeRest.add(Integer.parseInt(daysRestElements.get(i).text()));
-			}
-		}
-		
-		// Creates a HashMap to store team names and their respective days rest and stores appropriate values
-		Map<String, Integer> daysRestMap = new HashMap<String, Integer>();
-		for(int i = 0; i < awayTeams.size(); i++) {
-			daysRestMap.put(awayTeams.get(i), awayRest.get(i));
-			daysRestMap.put(homeTeams.get(i), homeRest.get(i));
-		}
-		System.out.println("Done!");
-		
-		*/
 		
 		// Jumps to the night's game lines/spreads on Bovada, waits for page load, clicks element that filters for games being played within the next 24 hours, and waits for page load again
 		driver.get("https://www.bovada.lv/sports/basketball/nba");
@@ -582,16 +474,6 @@ public class Main {
 		}
 		System.out.println("Done!");
 		
-		
-		// Gets today's date, then calculates the previous date, which is used to get the previous night's scores from NBA.com
-		currDay = LocalDateTime.now().getDayOfYear();
-		if(currDay == 1) { currDay += 364; }
-		else { currDay -= 1; }
-		calendar.set(Calendar.DAY_OF_YEAR, currDay);
-		monthName = calendar.getTime().toString().substring(4, 7);    	
-		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
-		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
-		
 		// Jumps to rotoworld.com's injury report, then waits for page load
 		driver.get("https://www.rotoworld.com/basketball/nba/injury-report");
 		System.out.print("Saving Injury Report data...\t\t\t");
@@ -619,7 +501,10 @@ public class Main {
 		}
 		System.out.println("Done!");
 		
-		String date = monthName + " " + dayOfMonth + ", " + year;
+		// Closes WebDriver
+		driver.close();
+		
+		/*String date = monthName + " " + dayOfMonth + ", " + year;
 		
 		int count = 0;
 		for(int i = 0; i < injRepTable.size(); i++) {
@@ -628,20 +513,11 @@ public class Main {
 			}
 		}
 		
-		// Closes WebDriver
-		driver.close();
-		
-		currDay = LocalDateTime.now().getDayOfYear();
-		calendar.set(Calendar.DAY_OF_YEAR, currDay);
-		calendar.set(Calendar.YEAR, LocalDateTime.now().getYear());
-		monthName = calendar.getTime().toString().substring(4, 7);    	
-		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
-		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
-				
 		if(count == 0) {
 			System.out.println("Injury Report not up-to-date.");
 			return;
 		}
+		*/
 		
 		// Output
 		
@@ -656,7 +532,7 @@ public class Main {
 		BufferedWriter buffWriter1 = new BufferedWriter(fileWriter2);
 		//BufferedWriter buffWriter2 = new BufferedWriter(fileWriter3);
 		
-		fileWriter1.append("As of " + monthCodes.get(monthName) + "-" + formatter.format(dayOfMonth) + "-" + year + "\n\n");
+		fileWriter1.append("As of " + today.getMonthValue() + "-" + today.getDayOfMonth() + "-" + today.getYear() + "\n\n");
 		
 		fileWriter1.append("Home Data\n");
 		for(int i = 0; i < homeSeasonDataTableText.size(); i++) {
@@ -692,15 +568,8 @@ public class Main {
 			}
 			fileWriter1.append("\n");
 		}
-		
-		if(currDay == 1) { currDay += 364; }
-		else { currDay -= 1; }
-		calendar.set(Calendar.DAY_OF_YEAR, currDay);
-		monthName = calendar.getTime().toString().substring(4, 7);    	
-		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
-		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
 				
-		fileWriter1.append("\nAs of " + monthCodes.get(monthName) + "-" + formatter.format(dayOfMonth) + "-" + year + "\n\n");
+		fileWriter1.append("\nAs of " + yesterday.getMonthValue() + "-" + yesterday.getDayOfMonth() + "-" + yesterday.getYear() + "\n\n");
 		
 		fileWriter1.append("Yesterday's Home Data\n");
 		for(int i = 0; i < yesHomeTableText.size(); i++) {
@@ -741,22 +610,14 @@ public class Main {
 		fileWriter1.close();
 		
 		// Output file 2
-		currDay = LocalDateTime.now().getDayOfYear();
-		calendar.set(Calendar.DAY_OF_YEAR, currDay);
-		calendar.set(Calendar.YEAR, LocalDateTime.now().getYear());
-		monthName = calendar.getTime().toString().substring(4, 7);
-		dayOfMonth = Integer.parseInt(calendar.getTime().toString().substring(8, 10));
-		year = Integer.parseInt(calendar.getTime().toString().substring(24,28));
 		
-		buffWriter1.write(monthCodes.get(monthName) + "-" + dayOfMonth + "-" + year + "\n" + spreads.size()/2 + "\n");
+		buffWriter1.write(today.getMonthValue() + "-" + today.getDayOfMonth() + "-" + today.getYear() + "\n" + spreads.size()/2 + "\n");
 		for(int i = 0; i < spreads.size()/2; i++) {
 			buffWriter1.write("Away,");
 			buffWriter1.write(teamAbvs.get(i*2)+",");
-			//buffWriter1.write(daysRestMap.get(teamAbvs.get(i*2))+",");
 			buffWriter1.write(spreads.get(i*2)+"\n");
 			buffWriter1.write("Home,");
 			buffWriter1.write(teamAbvs.get(i*2+1)+",");
-			//buffWriter1.write(daysRestMap.get(teamAbvs.get(i*2+1))+",");
 			buffWriter1.write(spreads.get(i*2+1)+"\n\n");
 		}
 		
