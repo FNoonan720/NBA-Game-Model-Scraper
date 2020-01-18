@@ -295,7 +295,7 @@ public class Main {
 		System.out.println("Done!");
 		
 		// Jumps to CTG's Four Factors page for 'Last 2 Weeks' performance, then waits for page load
-		driver.get("https://www.cleaningtheglass.com/stats/league/fourfactors?season=" + twoWksAgo.getYear() + "&seasontype=regseason&start=" + twoWksAgo.getMonthValue() + "/" + twoWksAgo.getDayOfMonth() + "/" + twoWksAgo.getYear() + "&end=07/1/" + (twoWksAgo.getYear()+1));
+		driver.get("https://www.cleaningtheglass.com/stats/league/fourfactors?season=2019&seasontype=regseason&start=" + twoWksAgo.getMonthValue() + "/" + twoWksAgo.getDayOfMonth() + "/" + twoWksAgo.getYear() + "&end=07/1/" + (twoWksAgo.getYear()+1));
 		System.out.print("Saving Recent (Last 2 Weeks) data...\t\t");
 		Thread.sleep(500);
 		
@@ -351,7 +351,7 @@ public class Main {
 		System.out.println("Done!");
 		
 		// Jumps to CTG's Four Factors page for 'Last 2 Weeks' performance, then waits for page load
-		driver.get("https://www.cleaningtheglass.com/stats/league/fourfactors?season=" + 2019 + "&seasontype=regseason&start=" + twoWksAgo.getMonthValue() + "/" + twoWksAgo.getDayOfMonth() + "/" + twoWksAgo.getYear() + "&end=" + yesterdayCTG.getMonthValue() + "/" + yesterdayCTG.getDayOfMonth() + "/" + yesterdayCTG.getYear()); // Fix next season
+		driver.get("https://www.cleaningtheglass.com/stats/league/fourfactors?season=2019&seasontype=regseason&start=" + twoWksAgo.getMonthValue() + "/" + twoWksAgo.getDayOfMonth() + "/" + twoWksAgo.getYear() + "&end=" + yesterdayCTG.getMonthValue() + "/" + yesterdayCTG.getDayOfMonth() + "/" + yesterdayCTG.getYear()); // Fix next season
 		System.out.print("Saving Yesterday's Recent data...\t\t");
 		Thread.sleep(500);
 		
