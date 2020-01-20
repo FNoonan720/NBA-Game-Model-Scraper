@@ -6,12 +6,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -19,6 +22,7 @@ import org.jsoup.select.Elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Main {
 
@@ -42,19 +46,52 @@ public class Main {
 
 	public static void scrapeModelData (String email, String password) throws InterruptedException, IOException {
 		
-		LocalDate today = LocalDate.now();		
+	    Calendar calendar = Calendar.getInstance();
+	    double time = calendar.get(Calendar.HOUR_OF_DAY) + calendar.get(Calendar.MINUTE)/60.0;
+
+	    String injRepTime;
+	    if (time < 13.5) {
+	    	System.out.println("No injury report available.\n");
+	    	return;
+	    }
+	    else if (time < 17.5) {	injRepTime = "1"; }
+	    else if (time < 20.5) { injRepTime = "5"; }
+	    else 				  { injRepTime = "8"; }
+	    
+		LocalDate today = LocalDate.now();
 		LocalDate yesterday = today.minusDays(1);
 		LocalDate yesterdayCTG = today.minusDays(2);
 		LocalDate twoWksAgo = today.minusDays(15);
 		
-		// Creates a Chrome driver instance
-		WebDriver driver = new ChromeDriver();
-				
+		// Download PDF on open
+		HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
+		chromePrefs.put("plugins.always_open_pdf_externally", true);
+
+		ChromeOptions options = new ChromeOptions();
+		options.setExperimentalOption("prefs", chromePrefs);
+
+		WebDriver driver = new ChromeDriver(options);
+						
 		// Sets implicit wait times for 10 seconds
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		// Maximizes driver window
 		driver.manage().window().maximize();
+		
+		// Downloads Official NBA Injury Report PDF
+		driver.get("https://ak-static.cms.nba.com/referee/injury/Injury-Report_" + today.getYear() + "-" + String.format("%02d", today.getMonthValue()) + "-" + String.format("%02d", today.getDayOfMonth()) + "_0" + injRepTime + "PM.pdf");
+		Thread.sleep(2000);
+		
+		File file = new File("C:\\Users\\fnoon\\Downloads\\Injury-Report_" + today.getYear() + "-" + String.format("%02d", today.getMonthValue()) + "-" + String.format("%02d", today.getDayOfMonth()) + "_0" + injRepTime + "PM.pdf");
+		
+		@SuppressWarnings("resource")
+		PDDocument pd = new PDDocument();
+		pd = PDDocument.load(file);
+
+		PDFTextStripper pdf = new PDFTextStripper();
+		String pdfText = pdf.getText(pd);
+		
+		pd.close();
 		
 		// Gets the login page
 		driver.get("https://cleaningtheglass.com?memberful_endpoint=auth");
@@ -474,6 +511,7 @@ public class Main {
 		}
 		System.out.println("Done!");
 		
+		/*
 		// Jumps to rotoworld.com's injury report, then waits for page load
 		driver.get("https://www.rotoworld.com/basketball/nba/injury-report");
 		System.out.print("Saving Injury Report data...\t\t\t");
@@ -500,24 +538,14 @@ public class Main {
 			injRepTable.add(temp);
 		}
 		System.out.println("Done!");
+		*/
+		
+		
+		
+		
 		
 		// Closes WebDriver
 		driver.close();
-		
-		/*String date = monthName + " " + dayOfMonth + ", " + year;
-		
-		int count = 0;
-		for(int i = 0; i < injRepTable.size(); i++) {
-			if(injRepTable.get(i).get(3).equals(date)) {
-				count++;
-			}
-		}
-		
-		if(count == 0) {
-			System.out.println("Injury Report not up-to-date.");
-			return;
-		}
-		*/
 		
 		// Output
 		
@@ -525,10 +553,12 @@ public class Main {
 		String basePath = new File("").getAbsolutePath();
 		File csvFile1 = new File(basePath + "\\output.csv");
 		File csvFile2 = new File(basePath + "\\output-history.csv");
+		File injRep   = new File(basePath + "\\injury-report.txt");
 		//File logFile  = new File(basePath + "\\log.txt");
 		FileWriter fileWriter1 = new FileWriter(csvFile1);
 		FileWriter fileWriter2 = new FileWriter(csvFile2, true);
 		//FileWriter fileWriter3 = new FileWriter(logFile, true);
+		FileWriter fileWriter4 = new FileWriter(injRep);
 		BufferedWriter buffWriter1 = new BufferedWriter(fileWriter2);
 		//BufferedWriter buffWriter2 = new BufferedWriter(fileWriter3);
 		
@@ -560,7 +590,7 @@ public class Main {
 			fileWriter1.append("\n");
 		}
 		fileWriter1.append("\n");
-		
+		/*
 		fileWriter1.append("Injury Report\n" + injRepTable.size() + "\n");
 		for(int i = 0; i < injRepTable.size(); i++) {
 			for(int j = 0; j < injRepTable.get(0).size(); j++) {
@@ -568,7 +598,7 @@ public class Main {
 			}
 			fileWriter1.append("\n");
 		}
-				
+		*/
 		fileWriter1.append("\nAs of " + yesterday.getMonthValue() + "-" + yesterday.getDayOfMonth() + "-" + yesterday.getYear() + "\n\n");
 		
 		fileWriter1.append("Yesterday's Home Data\n");
@@ -597,7 +627,7 @@ public class Main {
 			fileWriter1.append("\n");
 		}
 		fileWriter1.append("\n");
-		
+		/*
 		fileWriter1.append("Yesterday's Injury Report\n" + injRepTable.size() + "\n");
 		for(int i = 0; i < injRepTable.size(); i++) {
 			for(int j = 0; j < injRepTable.get(0).size(); j++) {
@@ -605,6 +635,7 @@ public class Main {
 			}
 			fileWriter1.append("\n");
 		}
+		*/
 		
 		fileWriter1.flush();
 		fileWriter1.close();
@@ -624,10 +655,14 @@ public class Main {
 		// Bovada Output
 		buffWriter1.close();
 		
+		fileWriter4.append(pdfText);
+		fileWriter4.flush();
+		fileWriter4.close();
+		
 		System.out.println("Done!");
 		
 		// Notifies user to where their data has been output
-		System.out.println("\nYour data can be found in 'output.csv' & 'output-history'.\n");
+		System.out.println("\nYour data can be found in 'output.csv', 'output-history.csv', & 'injury-report.txt.\n");
 		
 	}
 
