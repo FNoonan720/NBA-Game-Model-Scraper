@@ -1,4 +1,4 @@
-Injury Report: 02/03/20 01:30 PM
+Injury Report: 02/03/20 05:30 PM
 Game Date Game Time Matchup Team Player Name Current Status Reason
 02/03/2020 07:00 (ET) DAL@IND Dallas Mavericks Cleveland, Antonius Out G League - Two-Way
 Curry, Seth Out Injury/Illness - Left Knee; Tightness
@@ -10,7 +10,7 @@ Mitrou-Long, Naz Out G League - Two-Way
 Warren, T.J. Out Injury/Illness - Not Available; Concussion
 GSW@WAS Golden State Warriors Bowman, Ky Out G League - Two-Way
 Curry, Stephen Out Injury/Illness - Left Hand; Fracture
-Russell, D'Angelo Questionable Injury/Illness - Right Quadriceps; Contusion
+Russell, D'Angelo Out Injury/Illness - Right Quadriceps; Contusion
 Smailagic, Alen Out G League - On Assignment
 Thompson, Klay Out Injury/Illness - Left Acl; Rehabilitation
 Washington Wizards Bertans, Davis Questionable Injury/Illness - Neck; Neck tightness
@@ -25,10 +25,10 @@ Zizic, Ante Out Injury/Illness - Illness; Illness
 New York Knicks Allen, Kadeem Out G League - Two-Way
 Barrett, RJ Out Injury/Illness - Right Ankle; Sprain
 Brazdeikis, Ignas Out G League - On Assignment
-Morris Sr., Marcus Questionable Injury/Illness - Illness; Illness
+Morris Sr., Marcus Available Injury/Illness - Illness; Illness
 Ntilikina, Frank Probable Injury/Illness - Groin; Sore
-Page 1 of 4
-Injury Report: 02/03/20 01:30 PM
+Page 1 of 5
+Injury Report: 02/03/20 05:30 PM
 Game Date Game Time Matchup Team Player Name Current Status Reason
 Randle, Julius Probable Injury/Illness - Right Quadricep; Contused
 Robinson, Mitchell Probable Injury/Illness - Bilateral Hamstring; Sore
@@ -37,7 +37,7 @@ ORL@CHA Charlotte Hornets Martin, Caleb Out G League - On Assignment
 McDaniels, Jalen Out G League - On Assignment
 Simmons, Kobi Out G League - Two-Way
 Spalding, Ray Out G League - Two-Way
-Washington, P.J. Doubtful Injury/Illness - Right Ankle; Sprain
+Washington, P.J. Out Injury/Illness - Right Ankle; Sprain
 Orlando Magic Aminu, Al-Farouq Out Injury/Illness - Right Knee; Torn meniscus
 Augustin, D.J. Out Injury/Illness - Left Knee; Bone irritation
 Fournier, Evan Questionable Injury/Illness - Back; Low pain
@@ -45,19 +45,19 @@ Frazier Jr., Melvin Out G League - On Assignment
 Isaac, Jonathan Out Injury/Illness - Left Knee; posterior lateral corner injury and medialbone contusion
 Law, Vic Out G League - Two-Way
 07:30 (ET) BOS@ATL Atlanta Hawks Bembry, DeAndre' Doubtful Injury/Illness - Right Hand; Neuritis
-Fernando, Bruno Questionable Injury/Illness - Left Calf; Strain
-Hunter, De'Andre Questionable Injury/Illness - Left Ankle; Sprain
+Fernando, Bruno Doubtful Injury/Illness - Left Calf; Strain
+Hunter, De'Andre Doubtful Injury/Illness - Left Ankle; Sprain
 Len, Alex Out Injury/Illness - Right Hip Flexor; Strain
 Parker, Jabari Out Injury/Illness - Right Shoulder; Impingement
 Parsons, Chandler Out Injury/Illness - Concussion; Whiplash; Associated Disc Injury
 Reddish, Cam Out Injury/Illness - Concussion; Nose Contusion
-Young, Trae Questionable Injury/Illness - Right Ankle; Sprain
+Young, Trae Probable Injury/Illness - Right Ankle; Sprain
 Boston Celtics Fall, Tacko Out G League - Two-Way
 Kanter, Enes Available Injury/Illness - Right Hip; Contusion
 Smart, Marcus Out Injury/Illness - Right Thigh; Contusion
 Walker, Kemba Out Injury/Illness - Left Knee; Soreness
-Page 2 of 4
-Injury Report: 02/03/20 01:30 PM
+Page 2 of 5
+Injury Report: 02/03/20 05:30 PM
 Game Date Game Time Matchup Team Player Name Current Status Reason
 Williams III, Robert Out Injury/Illness - Left Hip; Bone Edema
 PHI@MIA Miami Heat Alexander, Kyle Out G League - Two-Way
@@ -86,16 +86,18 @@ Saric, Dario Out Injury/Illness - Left Ankle; Sprain
 Griffin, Blake Out Injury/Illness - Left Knee; Surgery
 Jackson, Reggie Questionable Injury/Illness - Left Lumbar Spine; Stress Reaction
 Kennard, Luke Out Injury/Illness - Bilateral Knee; Patella Tendinitis
-Page 3 of 4
- 
-Injury Report: 02/03/20 01:30 PM
+Page 3 of 5
+Injury Report: 02/03/20 05:30 PM
 Game Date Game Time Matchup Team Player Name Current Status Reason
 Morris, Markieff Questionable Injury/Illness - Right Hip; Strain
+Mykhailiuk, Svi Questionable Injury/Illness - Right Hip; Strain
 Rose, Derrick Out Injury/Illness - Left Hip; Adductor Strain
 Thomas, Khyri Out Injury/Illness - Right Foot; Surgery
 Memphis Grizzlies Allen, Grayson Out Injury/Illness - Left Hip; Injury
 Caboclo, Bruno Out Injury/Illness - Left Knee; Soreness
 Iguodala, Andre Out Not With Team
+Konchar, John Out G League - Two-Way
+Watanabe, Yuta Out G League - Two-Way
 10:00 (ET) MIN@SAC Minnesota Timberwolves Crabbe, Allen Doubtful Injury/Illness - Left Patella; Subluxation
 Layman, Jake Out Injury/Illness - Left Toe; Sprain
 Nowell, Jaylen Out G League - On Assignment
@@ -107,12 +109,22 @@ Jeffries, DaQuan Out G League - Two-Way
 Motley, Johnathan Out G League - Two-Way
 San Antonio Spurs Samanic, Luka Out G League - On Assignment
 Weatherspoon, Quinndary Out G League - Two-Way
-02/04/2020 07:30 (ET) MIL@NOP Milwaukee Bucks NOT YET SUBMITTED
+02/04/2020 07:30 (ET) MIL@NOP Milwaukee Bucks Connaughton, Pat Probable Injury/Illness - Right Ankle; Soreness
+Hill, George Out Injury/Illness - Left Hamstring; Strain
+Mason, Frank Out G League - Two-Way
+Reynolds, Cameron Out G League - Two-Way
 New Orleans Pelicans NOT YET SUBMITTED
 08:00 (ET) CHA@HOU Charlotte Hornets NOT YET SUBMITTED
-Houston Rockets NOT YET SUBMITTED
+Houston Rockets Capela, Clint Out Injury/Illness - Right Heel; Contusion
+Page 4 of 5
+ 
+Injury Report: 02/03/20 05:30 PM
+Game Date Game Time Matchup Team Player Name Current Status Reason
+Green, Gerald Out Injury/Illness - Left Cuneiform; Fracture
+Hilario, Nene Out Injury/Illness - Left Adductor; Strain
+Westbrook, Russell Doubtful Injury/Illness - Left Thumb; Sprain
 09:00 (ET) POR@DEN Denver Nuggets NOT YET SUBMITTED
 Portland Trail Blazers NOT YET SUBMITTED
 10:00 (ET) SAS@LAL Los Angeles Lakers NOT YET SUBMITTED
 San Antonio Spurs NOT YET SUBMITTED
-Page 4 of 4
+Page 5 of 5
