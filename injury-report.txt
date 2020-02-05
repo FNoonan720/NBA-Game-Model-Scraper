@@ -1,47 +1,5 @@
-Injury Report: 02/04/20 05:30 PM
+Injury Report: 02/05/20 01:30 PM
 Game Date Game Time Matchup Team Player Name Current Status Reason
-02/04/2020 07:30 (ET) MIL@NOP Milwaukee Bucks Antetokounmpo, Thanasis Out G League - On Assignment
-Bender, Dragan Out G League - On Assignment
-Connaughton, Pat Available Injury/Illness - Right Ankle; Soreness
-Hill, George Out Injury/Illness - Left Hamstring; Strain
-Mason, Frank Out G League - Two-Way
-Reynolds, Cameron Out G League - Two-Way
-New Orleans Pelicans Alexander-Walker, Nickeil Doubtful Injury/Illness - N/A; Illness
-Cheatham, Zylan Out G League - Two-Way
-Gray, Josh Out G League - Two-Way
-Miller, Darius Out Injury/Illness - Right Achilles; Surgery
-Williams, Kenrich Out Injury/Illness - Right Lower Back; Soreness
-08:00 (ET) CHA@HOU Charlotte Hornets Martin, Caleb Out G League - On Assignment
-McDaniels, Jalen Out G League - On Assignment
-Simmons, Kobi Out G League - Two-Way
-Spalding, Ray Out G League - Two-Way
-Washington, P.J. Questionable Injury/Illness - Right Ankle; Sprain
-Houston Rockets Capela, Clint Out Injury/Illness - Right Heel; Contusion
-Green, Gerald Out Injury/Illness - Left Cuneiform; Fracture
-Hilario, Nene Out Injury/Illness - Left Adductor; Strain
-Westbrook, Russell Doubtful Injury/Illness - Left Thumb; Sprain
-09:00 (ET) POR@DEN Denver Nuggets Bol, Bol Out Injury/Illness - Left Foot; Injury Management
-Millsap, Paul Out Injury/Illness - Left Knee; Contusion/Sprain
-Murray, Jamal Questionable Injury/Illness - Left Ankle; Sprain
-Plumlee, Mason Out Injury/Illness - Right Cuboid; Injury
-Porter Jr., Michael Out Injury/Illness - Right Ankle; Injury
-Portland Trail Blazers Brown, Moses Out G League - Two-Way
-Collins, Zach Out Injury/Illness - Left Shoulder; Dislocation
-Page 1 of 4
-Injury Report: 02/04/20 05:30 PM
-Game Date Game Time Matchup Team Player Name Current Status Reason
-Hoard, Jaylen Out G League - Two-Way
-Hood, Rodney Out Injury/Illness - Left Achilles Tendon; Rupture
-Labissiere, Skal Out Injury/Illness - Left Knee; Inflammation
-Nurkic, Jusuf Out Injury/Illness - Left Knee; Fracture
-10:00 (ET) SAS@LAL Los Angeles Lakers Antetokounmpo, Kostas Out G League - Two-Way
-Cacok, Devontae Out G League - Two-Way
-Caruso, Alex Probable Injury/Illness - Neck; Soreness
-Cousins, DeMarcus Out Injury/Illness - Right Knee; Rehabilitation
-Davis, Anthony Probable Injury/Illness - Right Shoulder; Soreness
-Horton-Tucker, Talen Out G League - On Assignment
-San Antonio Spurs Samanic, Luka Out G League - On Assignment
-Weatherspoon, Quinndary Out G League - Two-Way
 02/05/2020 07:00 (ET) PHX@DET Detroit Pistons Brown, Bruce Available Injury/Illness - Right Thumb; Sprain
 Griffin, Blake Out Injury/Illness - Left Knee; Surgery
 Kennard, Luke Out Injury/Illness - Bilateral Knee; Patella Tendinitis
@@ -57,9 +15,6 @@ Kaminsky, Frank Out Injury/Illness - Right Patella; Stress Fracture
 Saric, Dario Out Injury/Illness - Left Ankle; Sprain
 07:30 (ET) GSW@BKN Brooklyn Nets Durant, Kevin Out Injury/Illness - Right Achilles; Rehab
 Harris, Joe Available Injury/Illness - Left Over Eye; Stitches
-Page 2 of 4
-Injury Report: 02/04/20 05:30 PM
-Game Date Game Time Matchup Team Player Name Current Status Reason
 Irving, Kyrie Out Injury/Illness - Right Knee; Sprain
 Temple, Garrett Available Injury/Illness - Left Over Eye; Stitches
 Golden State Warriors Bowman, Ky Out G League - Two-Way
@@ -67,18 +22,23 @@ Curry, Stephen Out Injury/Illness - Left Hand; Fracture
 Smailagic, Alen Out G League - On Assignment
 Thompson, Klay Out Injury/Illness - Left Acl; Rehabilitation
 IND@TOR Indiana Pacers Bowen II, Brian Out G League - Two-Way
+Johnson, Alize Out G League - On Assignment
+Leaf, TJ Questionable Injury/Illness - Not Available; Illness
 Mitrou-Long, Naz Out G League - Two-Way
 Warren, T.J. Out Injury/Illness - Not Available; Concussion
 Toronto Raptors Brissett, Oshae Out G League - Two-Way
+Page 1 of 4
+Injury Report: 02/05/20 01:30 PM
+Game Date Game Time Matchup Team Player Name Current Status Reason
 Gasol, Marc Out Injury/Illness - Left Hamstring; Tightness
 Hernandez, Dewan Out Injury/Illness - Right Ankle; Sprain
 Hollis-Jefferson, Rondae Questionable Injury/Illness - Right Ankle; Sprain
 Powell, Norman Out Injury/Illness - Left Finger; Fourth - fracture; metacarpal
-ORL@BOS Boston Celtics Hayward, Gordon Probable Injury/Illness - Right Calf; Contusion
-Kanter, Enes Probable Injury/Illness - Right Hip; Contusion
-Smart, Marcus Questionable Injury/Illness - Right Quad; Contusion
+ORL@BOS Boston Celtics Hayward, Gordon Available Injury/Illness - Right Calf; Contusion
+Kanter, Enes Available Injury/Illness - Right Hip; Contusion
+Smart, Marcus Out Injury/Illness - Right Quad; Contusion
 Theis, Daniel Out Injury/Illness - Right Ankle; Sprain
-Walker, Kemba Questionable Injury/Illness - Left Knee; Soreness
+Walker, Kemba Out Injury/Illness - Left Knee; Soreness
 Williams III, Robert Out Injury/Illness - Left Hip; Bone Edema
 Orlando Magic Aminu, Al-Farouq Out Injury/Illness - Right Knee; Torn meniscus
 Augustin, D.J. Out Injury/Illness - Left Knee; Bone irritation
@@ -86,21 +46,52 @@ Birch, Khem Questionable Injury/Illness - Back; Low tightness
 Frazier Jr., Melvin Out G League - On Assignment
 Isaac, Jonathan Out Injury/Illness - Left Knee; posterior lateral corner injury and medialbone contusion
 Law, Vic Out G League - Two-Way
-Page 3 of 4
- 
-Injury Report: 02/04/20 05:30 PM
+08:00 (ET) ATL@MIN Atlanta Hawks Bembry, DeAndre' Out Injury/Illness - Right Hand; Neuritis
+Fernando, Bruno Questionable Injury/Illness - Left Calf; Strain
+Huerter, Kevin Probable Injury/Illness - Adductor; Pain
+Hunter, De'Andre Questionable Injury/Illness - Left Ankle; Sprain
+Len, Alex Out Injury/Illness - Right Hip Flexor; Strain
+Parker, Jabari Out Injury/Illness - Right Shoulder; Impingement
+Parsons, Chandler Out Injury/Illness - Concussion; Whiplash; Associated Disc Injury
+Reddish, Cam Out Injury/Illness - Concussion; Concussion
+Young, Trae Probable Injury/Illness - Right Elbow; Contusion
+Minnesota Timberwolves Crabbe, Allen Questionable Injury/Illness - Left Patella; Subluxation
+Page 2 of 4
+Injury Report: 02/05/20 01:30 PM
 Game Date Game Time Matchup Team Player Name Current Status Reason
-08:00 (ET) ATL@MIN Atlanta Hawks NOT YET SUBMITTED
-Minnesota Timberwolves NOT YET SUBMITTED
-CLE@OKC Cleveland Cavaliers NOT YET SUBMITTED
-Oklahoma City Thunder NOT YET SUBMITTED
+Layman, Jake Out Injury/Illness - Left Toe; Sprain
+CLE@OKC Cleveland Cavaliers Thompson, Tristan Questionable Injury/Illness - Right Quadricep; Soreness
+Windler, Dylan Out Injury/Illness - Left Lower Leg; Stress Reaction
+Zizic, Ante Out Injury/Illness - Illness; Illness
+Oklahoma City Thunder Roberson, Andre Out Injury/Illness - Left Knee; Injury recovery
 08:30 (ET) MEM@DAL Dallas Mavericks Barea, J.J. Questionable Injury/Illness - Left Ankle; Sprain
 Curry, Seth Questionable Injury/Illness - Left Knee; Tightness
 Doncic, Luka Out Injury/Illness - Right Ankle; Sprain
 Powell, Dwight Out Injury/Illness - Right Achilles; Surgery
-Memphis Grizzlies NOT YET SUBMITTED
+Memphis Grizzlies Allen, Grayson Out Injury/Illness - Left Hip; Injury
+Caboclo, Bruno Out Injury/Illness - Left Knee; Soreness
+Iguodala, Andre Out Not With Team
+Valanciunas, Jonas Questionable Injury/Illness - Right Knee; Soreness
 09:00 (ET) DEN@UTA Denver Nuggets NOT YET SUBMITTED
-Utah Jazz NOT YET SUBMITTED
-10:00 (ET) MIA@LAC LA Clippers NOT YET SUBMITTED
-Miami Heat NOT YET SUBMITTED
+Utah Jazz Brantley, Jarrell Out G League - Two-Way
+Oni, Miye Out G League - On Assignment
+Wright-Foreman, Justin Out G League - Two-Way
+10:00 (ET) MIA@LAC Miami Heat Alexander, Kyle Out Injury/Illness - Right Knee; Hyperextended & PCL Sprain
+Herro, Tyler Out Injury/Illness - Right Ankle; Soreness
+Leonard, Meyers Out Injury/Illness - Left Ankle; Sprain
+Winslow, Justise Out Injury/Illness - Lower Back; Bone bruise
+02/06/2020 07:30 (ET) ORL@NYK New York Knicks NOT YET SUBMITTED
+Orlando Magic NOT YET SUBMITTED
+08:00 (ET) NOP@CHI Chicago Bulls NOT YET SUBMITTED
+New Orleans Pelicans NOT YET SUBMITTED
+PHI@MIL Milwaukee Bucks NOT YET SUBMITTED
+Philadelphia 76ers NOT YET SUBMITTED
+Page 3 of 4
+ 
+Injury Report: 02/05/20 01:30 PM
+Game Date Game Time Matchup Team Player Name Current Status Reason
+10:00 (ET) SAS@POR Portland Trail Blazers NOT YET SUBMITTED
+San Antonio Spurs NOT YET SUBMITTED
+10:30 (ET) HOU@LAL Houston Rockets NOT YET SUBMITTED
+Los Angeles Lakers NOT YET SUBMITTED
 Page 4 of 4
